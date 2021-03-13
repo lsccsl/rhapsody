@@ -1,0 +1,43 @@
+project(os_api){	
+		includes += "../../include/"
+		includes += "../../os_api/sync/"
+		includes += "../../os_api/ipc/"
+		includes += "../../os_api/"
+
+		//libpaths +=
+		//lit_libs +=
+		//pure_libs=/root/ist/sqlite/sqlite/libxx.a
+		
+		//exename=test
+		staticname=os_api
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+	//cp ./sync/*.h ../include/os_api
+	//cp ./ipc/*.h ../include/os_api
+	//cp ./advance_sync/*.h ../include/os_api
+	//cp ./*.h ../include/os_api
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../os_api/mythread.c
+ 		../../os_api/sync/myevent.c
+ 		../../os_api/sync/mymutex.c
+ 		../../os_api/sync/mysem.c
+ 		../../os_api/ipc/mypipe.c
+ 		../../os_api/myhandleSet.c
+ 		../../os_api/ipc/mynamepipe.c
+ 		../../os_api/ipc/mysysvmsg.c
+ 		../../os_api/myrand.c
+ 		../../os_api/file/myOsFile.c
+ 		../../os_api/ipc/mysock.c
+ 		../../os_api/ipc/mymmap.c
+ 		../../os_api/myprocess.c
+ 		../../myos.c
+ 		}
+}
+

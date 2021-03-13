@@ -1,0 +1,111 @@
+#----------------------------------------------------------------------------
+#       Macros
+#----------------------------------------------------------------------------
+CXX           = gcc
+LD            = $(CXX) $(CCFLAGS) $(CPPFLAGS)
+AR            = ar
+PICFLAGS      = -fPIC
+CPPFLAGS      = $(PICFLAGS) $(GENFLAGS) -D_REENTRANT -I"../../include/" -I"../../os_api/sync/" -I"../../os_api/ipc/" -I"../../os_api/" -I"../../file/"
+OBJEXT        = .o
+OUTPUT_OPTION = -o "$@"
+COMPILE.cc    = $(CXX) $(CCFLAGS) $(CPPFLAGS) -c
+LDFLAGS       = -L"."
+CCC           = $(CXX)
+MAKEFILE      = Makefile.os_api
+DEPENDENCIES  = .depend.$(MAKEFILE)
+LTARGETDIR    = ../../bin/
+CAT           = cat
+MV            = mv -f
+RM            = rm -rf
+CP            = cp -p
+NUL           = /dev/null
+MKDIR         = mkdir -p
+EXEEXT        = 
+LIBPREFIX     = lib
+LIBSUFFIX     = 
+GENFLAGS      = -O
+LDLIBS        = -ldl -lpthread $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so)))))
+OBJS          = ../../os_api/mythread$(OBJEXT) ../../os_api/sync/myevent$(OBJEXT) ../../os_api/sync/mymutex$(OBJEXT) ../../os_api/sync/mysem$(OBJEXT) ../../os_api/ipc/mypipe$(OBJEXT) ../../os_api/myhandleSet$(OBJEXT) ../../os_api/ipc/mynamepipe$(OBJEXT) ../../os_api/ipc/mysysvmsg$(OBJEXT) ../../os_api/myrand$(OBJEXT) ../../os_api/file/myOsFile$(OBJEXT) ../../os_api/ipc/mysock$(OBJEXT) ../../os_api/ipc/mymmap$(OBJEXT) ../../os_api/myprocess$(OBJEXT) ../../os_api/myos$(OBJEXT)
+AREXT         = .a
+LIB           = $(LTARGETDIR)$(LIBPREFIX)os_api$(LIBSUFFIX)$(AREXT)
+SRC           = ../../os_api/mythread.c ../../os_api/sync/myevent.c ../../os_api/sync/mymutex.c ../../os_api/sync/mysem.c ../../os_api/ipc/mypipe.c ../../os_api/myhandleSet.c ../../os_api/ipc/mynamepipe.c ../../os_api/ipc/mysysvmsg.c ../../os_api/myrand.c ../../os_api/file/myOsFile.c  ../../os_api/ipc/mysock.c ../../os_api/ipc/mymmap.c ../../os_api/myprocess.c ../../os_api/myos.c
+LINK.cc       = $(LD) $(LDFLAGS)
+EXPORTFLAGS   = $(STATICFLAGS)
+
+#----------------------------------------------------------------------------
+#       Local targets
+#----------------------------------------------------------------------------
+
+all: $(LIB)
+
+$(LTARGETDIR):
+	@$(MKDIR) "$@"
+
+$(LIB): $(LTARGETDIR) $(OBJS)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJS)
+
+generated: $(GENERATED_DIRTY)
+	@-:
+
+../../os_api/mythread$(OBJEXT): ../../os_api/mythread.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/mythread.c
+
+../../os_api/sync/myevent$(OBJEXT): ../../os_api/sync/myevent.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/sync/myevent.c
+
+../../os_api/sync/mymutex$(OBJEXT): ../../os_api/sync/mymutex.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/sync/mymutex.c
+
+../../os_api/sync/mysem$(OBJEXT): ../../os_api/sync/mysem.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/sync/mysem.c
+
+../../os_api/ipc/mypipe$(OBJEXT): ../../os_api/ipc/mypipe.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/ipc/mypipe.c
+
+../../os_api/myhandleSet$(OBJEXT): ../../os_api/myhandleSet.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/myhandleSet.c
+
+../../os_api/ipc/mynamepipe$(OBJEXT): ../../os_api/ipc/mynamepipe.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/ipc/mynamepipe.c
+
+../../os_api/ipc/mysysvmsg$(OBJEXT): ../../os_api/ipc/mysysvmsg.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/ipc/mysysvmsg.c
+
+../../os_api/myrand$(OBJEXT): ../../os_api/myrand.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/myrand.c
+
+../../os_api/file/myOsFile$(OBJEXT): ../../os_api/file/myOsFile.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/file/myOsFile.c
+
+../../os_api/ipc/mysock$(OBJEXT): ../../os_api/ipc/mysock.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/ipc/mysock.c
+
+../../os_api/ipc/mymmap$(OBJEXT): ../../os_api/ipc/mymmap.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/ipc/mymmap.c
+
+../../os_api/myprocess$(OBJEXT): ../../os_api/myprocess.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/myprocess.c
+
+../../os_api/myos$(OBJEXT): ../../os_api/myos.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../os_api/myos.c
+
+clean:
+	-$(RM) $(OBJS)
+
+realclean: clean
+	-$(RM) $(SHLIB) $(LIB)
+
+CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+
+
+#----------------------------------------------------------------------------
+#       Dependencies
+#----------------------------------------------------------------------------
+
+$(DEPENDENCIES):
+	@touch $(DEPENDENCIES)
+
+depend:
+	-makedepend -Y $(CFLAGS) $(CCFLAGS) $(CPPFLAGS) -f $(DEPENDENCIES) $(SRC) 2> $(NUL)
+
+include $(DEPENDENCIES)

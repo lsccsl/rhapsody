@@ -1,0 +1,182 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "advance_container"=".\advance_container.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name os_api
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "algorithm"=".\algorithm.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name utility
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name debug
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "container"=".\container.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name algorithm
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "debug"=".\debug.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "frame"=".\frame.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name advance_container
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "os_api"=".\os_api.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name container
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "rd"=".\rd.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "storage"=".\storage.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name container
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "test"=".\test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name frame
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name advance_container
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name algorithm
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name container
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name debug
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name os_api
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name utility
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name storage
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "utility"=".\utility.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

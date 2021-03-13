@@ -1,0 +1,26 @@
+project(frame){	
+		includes += "../../include/"
+
+		//libpaths +=
+		//lit_libs +=
+		//pure_libs=/root/ist/sqlite/sqlite/libXXX.a
+		
+		//exename=test
+		staticname=frame
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+	//cp ./*.h ../include/frame
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../frame/mytimer_thread.c
+ 		../../frame/mylisterner.c
+ 		../../frame/mydefmempool.c
+ 		}
+}
+

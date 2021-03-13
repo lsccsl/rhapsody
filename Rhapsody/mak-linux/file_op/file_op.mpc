@@ -1,0 +1,25 @@
+project(file_op){	
+		includes += "../../include/"
+
+		//libpaths +=
+		//lit_libs +=
+		//pure_libs=/root/ist/sqlite/sqlite/libxxx.a
+		
+		//exename=test
+		staticname=file_op
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+		//cp ./os_api/util.h ../include/util
+		//cp ./container/*.h ../include/util
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../file_op/myini.c
+ 		}
+}
+

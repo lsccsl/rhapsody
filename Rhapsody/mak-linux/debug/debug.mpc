@@ -1,0 +1,27 @@
+project(debug){	
+		//includes += "../include/container"
+		//includes += "./sync/"
+		//includes += "../include/debug"
+
+		//libpaths +=
+		//lit_libs +=
+		//pure_libs=/root/ist/sqlite/sqlite/libxxxx.a
+		
+		//exename=test
+		staticname=debug
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+		//cp ./os_api/util.h ../include/util
+		//cp ./container/*.h ../include/util
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../debug/mylog.c
+ 		}
+}
+

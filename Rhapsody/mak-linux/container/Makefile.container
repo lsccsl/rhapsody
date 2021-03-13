@@ -1,0 +1,115 @@
+#----------------------------------------------------------------------------
+#       Macros
+#----------------------------------------------------------------------------
+CXX           = gcc
+LD            = $(CXX) $(CCFLAGS) $(CPPFLAGS)
+AR            = ar
+PICFLAGS      = -fPIC
+CPPFLAGS      = $(PICFLAGS) $(GENFLAGS) -D_REENTRANT -I"../../include/" -I"../../container/" -I"../../container/bbstree/"
+OBJEXT        = .o
+OUTPUT_OPTION = -o "$@"
+COMPILE.cc    = $(CXX) $(CCFLAGS) $(CPPFLAGS) -c
+LDFLAGS       = -L"."
+CCC           = $(CXX)
+MAKEFILE      = Makefile.container
+DEPENDENCIES  = .depend.$(MAKEFILE)
+LTARGETDIR    = ../../bin/
+CAT           = cat
+MV            = mv -f
+RM            = rm -rf
+CP            = cp -p
+NUL           = /dev/null
+MKDIR         = mkdir -p
+EXEEXT        = 
+LIBPREFIX     = lib
+LIBSUFFIX     = 
+GENFLAGS      = -O
+LDLIBS        = -ldl -lpthread $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so)))))
+OBJS          = ../../container/mybuffer$(OBJEXT) ../../container/myrbtree$(OBJEXT) ../../container/string_set$(OBJEXT) ../../container/mydeque$(OBJEXT) ../../container/myhashtable$(OBJEXT) ../../container/mylist$(OBJEXT) ../../container/myobj$(OBJEXT) ../../container/myvector$(OBJEXT) ../../container/bbstree/__bstree$(OBJEXT) ../../container/bbstree/myAVLTree$(OBJEXT) ../../container/bbstree/__avl_tree$(OBJEXT) ../../container/__vector_inter$(OBJEXT) ../../container/myTTree$(OBJEXT) ../../container/myBTree$(OBJEXT) ../../container/mybitvector$(OBJEXT)
+AREXT         = .a
+LIB           = $(LTARGETDIR)$(LIBPREFIX)container$(LIBSUFFIX)$(AREXT)
+SRC           = ../../container/mybuffer.c ../../container/myrbtree.c ../../container/string_set.c ../../container/mydeque.c ../../container/myhashtable.c ../../container/mylist.c ../../container/myobj.c ../../container/myvector.c ../../container/bbstree/__bstree.c ../../container/bbstree/myAVLTree.c ../../container/bbstree/__avl_tree.c ../../container/__vector_inter.c ../../container/myTTree.c ../../container/myBTree.c ../../container/mybitvector.c
+LINK.cc       = $(LD) $(LDFLAGS)
+EXPORTFLAGS   = $(STATICFLAGS)
+
+#----------------------------------------------------------------------------
+#       Local targets
+#----------------------------------------------------------------------------
+
+all: $(LIB)
+
+$(LTARGETDIR):
+	@$(MKDIR) "$@"
+
+$(LIB): $(LTARGETDIR) $(OBJS)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJS)
+
+generated: $(GENERATED_DIRTY)
+	@-:
+
+../../container/mybuffer$(OBJEXT): ../../container/mybuffer.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/mybuffer.c
+
+../../container/myrbtree$(OBJEXT): ../../container/myrbtree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/myrbtree.c
+
+../../container/string_set$(OBJEXT): ../../container/string_set.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/string_set.c
+
+../../container/mydeque$(OBJEXT): ../../container/mydeque.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/mydeque.c
+
+../../container/myhashtable$(OBJEXT): ../../container/myhashtable.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/myhashtable.c
+
+../../container/mylist$(OBJEXT): ../../container/mylist.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/mylist.c
+
+../../container/myobj$(OBJEXT): ../../container/myobj.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/myobj.c
+
+../../container/myvector$(OBJEXT): ../../container/myvector.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/myvector.c
+
+../../container/bbstree/__bstree$(OBJEXT): ../../container/bbstree/__bstree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/bbstree/__bstree.c
+
+../../container/bbstree/myAVLTree$(OBJEXT): ../../container/bbstree/myAVLTree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/bbstree/myAVLTree.c
+
+../../container/bbstree/__avl_tree$(OBJEXT): ../../container/bbstree/__avl_tree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/bbstree/__avl_tree.c
+
+../../container/__vector_inter$(OBJEXT): ../../container/__vector_inter.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/__vector_inter.c
+
+../../container/myTTree$(OBJEXT): ../../container/myTTree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/myTTree.c
+
+../../container/myBTree$(OBJEXT): ../../container/myBTree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/myBTree.c
+
+../../container/mybitvector$(OBJEXT): ../../container/mybitvector.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../container/mybitvector.c
+
+
+clean:
+	-$(RM) $(OBJS)
+
+realclean: clean
+	-$(RM) $(SHLIB) $(LIB)
+
+CPPFLAGS += -Wno-deprecated -g
+
+
+#----------------------------------------------------------------------------
+#       Dependencies
+#----------------------------------------------------------------------------
+
+$(DEPENDENCIES):
+	@touch $(DEPENDENCIES)
+
+depend:
+	-makedepend -Y $(CFLAGS) $(CCFLAGS) $(CPPFLAGS) -f $(DEPENDENCIES) $(SRC) 2> $(NUL)
+
+include $(DEPENDENCIES)

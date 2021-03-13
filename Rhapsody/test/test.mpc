@@ -1,0 +1,51 @@
+project(test){	
+		includes += "../include/"
+
+		libpaths += ../bin
+		lit_libs += container
+		lit_libs += debug
+		lit_libs += os_api
+		lit_libs += advance_container
+		lit_libs += frame
+		lit_libs += file_op
+		lit_libs += utility
+		lit_libs += algorithm
+		//pure_libs=/root/ist/sqlite/sqlite/libxxxx.a
+		
+		exename=test
+		//staticname=os_api
+		//sharedname=
+		install=./
+		//libout=../bin
+
+		//cp ./os_api/util.h ../include/util
+		//cp ./container/*.h ../include/util
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		test_frame.c
+ 		test_deque.c
+ 		test_ini.c
+ 		test_mybuffer.c
+ 		test_myrbtree.c
+ 		test_timer_heap.c
+ 		test_hash.c
+ 		test_msgparse.c
+ 		test_mylist.c
+ 		test_string_set.c
+ 		test_vector.c
+ 		test.c
+ 		//boost_tst.cpp
+ 		getcallid.c
+ 		test_heapSort.c
+ 		test_avltree.c
+		test_rhapsody_mem_pool.c
+		test_binary.c
+		test_ttree.c
+		test_btree.c
+ 		}
+}
+

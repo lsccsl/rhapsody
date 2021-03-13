@@ -1,0 +1,13 @@
+/**
+ * 一般性注释
+ * 
+ * @return:
+ * @brief:摘要
+ * @param:参数描述
+ * @retval:返回值某个具体值描述
+ * @return:返回值描述
+ * @file
+ * @note:注意事项
+ * @see:参考
+ * @todo:有待完善
+ */

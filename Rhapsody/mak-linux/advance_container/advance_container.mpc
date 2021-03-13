@@ -1,0 +1,26 @@
+project(advance_container){	
+		includes += "../../include/"
+		
+		//libpaths += ../bin
+		//lit_libs += con
+		//pure_libs=/root/ist/sqlite/sqlite/libxxx.a
+		
+		//exename=test
+		staticname=advance_container
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+	//cp ./*.h ../include/advance_container
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../advance_container/mymsgque.c  
+ 		../../advance_container/myproritymsgque.c  
+ 		../../advance_container/mytimerheap.c
+ 		}
+}
+

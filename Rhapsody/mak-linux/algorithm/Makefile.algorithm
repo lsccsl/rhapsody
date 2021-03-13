@@ -1,0 +1,84 @@
+#----------------------------------------------------------------------------
+#       Macros
+#----------------------------------------------------------------------------
+CXX           = gcc
+LD            = $(CXX) $(CCFLAGS) $(CPPFLAGS)
+AR            = ar
+PICFLAGS      = -fPIC
+CPPFLAGS      = $(PICFLAGS) $(GENFLAGS) -D_REENTRANT -I"../../include/"
+OBJEXT        = .o
+OUTPUT_OPTION = -o "$@"
+COMPILE.cc    = $(CXX) $(CCFLAGS) $(CPPFLAGS) -c
+LDFLAGS       = -L"."
+CCC           = $(CXX)
+MAKEFILE      = Makefile.algorithm
+DEPENDENCIES  = .depend.$(MAKEFILE)
+LTARGETDIR    = ../../bin/
+CAT           = cat
+MV            = mv -f
+RM            = rm -rf
+CP            = cp -p
+NUL           = /dev/null
+MKDIR         = mkdir -p
+EXEEXT        = 
+LIBPREFIX     = lib
+LIBSUFFIX     = 
+GENFLAGS      = -O
+LDLIBS        = -ldl -lpthread $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so)))))
+OBJS          = ../../algorithm/__def_fun_def$(OBJEXT) ../../algorithm/MyHeapAlg$(OBJEXT) ../../algorithm/MyInsertSort$(OBJEXT) ../../algorithm/MyQuickSort$(OBJEXT) ../../algorithm/MyBinarySearch$(OBJEXT)
+AREXT         = .a
+LIB           = $(LTARGETDIR)$(LIBPREFIX)algorithm$(LIBSUFFIX)$(AREXT)
+SRC           = ../../algorithm/__def_fun_def.c ../../algorithm/MyHeapAlg.c ../../algorithm/MyInsertSort.c ../../algorithm/MyQuickSort.c ../../algorithm/MyBinarySearch.c
+LINK.cc       = $(LD) $(LDFLAGS)
+EXPORTFLAGS   = $(STATICFLAGS)
+
+#----------------------------------------------------------------------------
+#       Local targets
+#----------------------------------------------------------------------------
+
+all: $(LIB)
+
+$(LTARGETDIR):
+	@$(MKDIR) "$@"
+
+$(LIB): $(LTARGETDIR) $(OBJS)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJS)
+
+generated: $(GENERATED_DIRTY)
+	@-:
+
+../../algorithm/__def_fun_def$(OBJEXT): ../../algorithm/__def_fun_def.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../algorithm/__def_fun_def.c
+
+../../algorithm/MyHeapAlg$(OBJEXT): ../../algorithm/MyHeapAlg.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../algorithm/MyHeapAlg.c
+
+../../algorithm/MyInsertSort$(OBJEXT): ../../algorithm/MyInsertSort.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../algorithm/MyInsertSort.c
+
+../../algorithm/MyQuickSort$(OBJEXT): ../../algorithm/MyQuickSort.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../algorithm/MyQuickSort.c
+
+../../algorithm/MyBinarySearch$(OBJEXT): ../../algorithm/MyBinarySearch.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../algorithm/MyBinarySearch.c
+
+clean:
+	-$(RM) $(OBJS)
+
+realclean: clean
+	-$(RM) $(SHLIB) $(LIB)
+
+CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+
+
+#----------------------------------------------------------------------------
+#       Dependencies
+#----------------------------------------------------------------------------
+
+$(DEPENDENCIES):
+	@touch $(DEPENDENCIES)
+
+depend:
+	-makedepend -Y $(CFLAGS) $(CCFLAGS) $(CPPFLAGS) -f $(DEPENDENCIES) $(SRC) 2> $(NUL)
+
+include $(DEPENDENCIES)

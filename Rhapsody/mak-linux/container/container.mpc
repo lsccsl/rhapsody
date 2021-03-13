@@ -1,0 +1,39 @@
+project(container){	
+		includes += "../../include/"
+		includes += "../../container/"
+		includes += "../../container/bbstree/"
+
+		//libpaths +=
+		//lit_libs +=XXX
+		//pure_libs=/root/ist/sqlite/sqlite/libXXX.a
+		
+		//exename=test
+		staticname=container
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+		//cp ./*.h ../include/container
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../container/mybuffer.c 
+ 		../../container/myrbtree.c     
+ 		../../container/string_set.c
+ 		../../container/mydeque.c   
+ 		../../container/myhashtable.c  
+ 		../../container/mylist.c  
+ 		../../container/myobj.c      
+ 		../../container/myvector.c 		
+ 		../../container/bbstree/__bstree.c 		
+ 		../../container/bbstree/myAVLTree.c
+		../../container/bbstree/__avl_tree.c
+		../../container/__vector_inter.c
+		../../container/myTTree.c
+		../../container/myBTree.c
+ 		}
+}
+

@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: linve - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"..\output\linve\Debug/lve_version.res" /d "_DEBUG" "C:\Documents and Settings\shaochuan.linsc\桌面\新建文件夹 (3)\linve\lve_version.rc"" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4AF4.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LINVE_EXPORTS" /Fp"..\output\linve\Debug/linve.pch" /YX /Fo"..\output\linve\Debug/" /Fd"..\output\linve\Debug/" /FD /GZ /c 
+"C:\Documents and Settings\shaochuan.linsc\桌面\新建文件夹 (3)\linve\lve_g711.c"
+"C:\Documents and Settings\shaochuan.linsc\桌面\新建文件夹 (3)\linve\lve_g726.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4AF4.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4AF5.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:yes /pdb:"..\output\linve\Debug/linve-d.pdb" /debug /machine:I386 /out:"..\bin/linve-d.dll" /implib:"..\output\linve\Debug/linve-d.lib" /pdbtype:sept 
+"\Documents and Settings\shaochuan.linsc\桌面\新建文件夹 (3)\output\linve\Debug\lve_g711.obj"
+"\Documents and Settings\shaochuan.linsc\桌面\新建文件夹 (3)\output\linve\Debug\lve_g726.obj"
+"\Documents and Settings\shaochuan.linsc\桌面\新建文件夹 (3)\output\linve\Debug\lve_version.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4AF5.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+lve_g711.c
+lve_g726.c
+Linking...
+   Creating library ..\output\linve\Debug/linve-d.lib and object ..\output\linve\Debug/linve-d.exp
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4AF9.bat" with contents
+[
+@echo off
+copy .\lve_g711.h ..\include
+copy .\lve_g726.h ..\include
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4AF9.bat"
+
+已复制         1 个文件。
+已复制         1 个文件。
+
+
+
+<h3>Results</h3>
+linve-d.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

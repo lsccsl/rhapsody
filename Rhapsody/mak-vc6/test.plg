@@ -1,0 +1,654 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: utility - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1009.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_MBCSV6" /FR"../output/utility/debug/" /Fp"../output/utility/debug/utility.pch" /YX /Fo"../output/utility/debug/" /Fd"../output/utility/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\utility\mymempool.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1009.tmp" 
+Creating command line "link.exe -lib /nologo /out:"../bin\utility-d.lib"  "\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\utility\debug\mymempool.obj" "
+<h3>Output Window</h3>
+Compiling...
+mymempool.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100A.bat" with contents
+[
+@echo off
+md         ..\include\
+copy         ..\utility\*.h         ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100A.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\utility\myconfig.h
+..\utility\myerr_def.h
+..\utility\mymempool.h
+..\utility\myutility.h
+已复制         4 个文件。
+<h3>
+--------------------Configuration: debug - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100B.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"../output/debug/debug/debug.pch" /YX /Fo"../output/debug/debug/" /Fd"../output/debug/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\debug\mylog.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100B.tmp" 
+Creating command line "link.exe -lib /nologo /out:"../bin/debug-d.lib"  "\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\debug\debug\mylog.obj" "
+<h3>Output Window</h3>
+Compiling...
+mylog.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100C.bat" with contents
+[
+@echo off
+md       ..\include\
+copy       ..\debug\*.h       ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100C.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\debug\mylog.h
+已复制         1 个文件。
+<h3>
+--------------------Configuration: algorithm - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100D.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include\\" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"../output/algorithm/debug/algorithm.pch" /YX /Fo"../output/algorithm/debug/" /Fd"../output/algorithm/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\algorithm\__def_fun_def.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\algorithm\MyBinarySearch.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\algorithm\MyHeapAlg.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\algorithm\MyInsertSort.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\algorithm\MyQuickSort.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100D.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100E.tmp" with contents
+[
+/nologo /out:"../bin\algorithm-d.lib" 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\algorithm\debug\__def_fun_def.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\algorithm\debug\MyBinarySearch.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\algorithm\debug\MyHeapAlg.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\algorithm\debug\MyInsertSort.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\algorithm\debug\MyQuickSort.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\utility-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\debug-d.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100E.tmp"
+<h3>Output Window</h3>
+Compiling...
+__def_fun_def.c
+MyBinarySearch.c
+MyHeapAlg.c
+MyInsertSort.c
+MyQuickSort.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100F.bat" with contents
+[
+@echo off
+md       ..\include\
+copy       ..\algorithm\*.h       ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP100F.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\algorithm\MyAlgorithm.h
+..\algorithm\MyfunctionDef.h
+..\algorithm\__def_fun_def.h
+已复制         3 个文件。
+<h3>
+--------------------Configuration: container - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1010.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\container\bbstree" /I "..\include" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_MBCSV6" /Fp"../output/container/debug/container.pch" /YX /Fo"../output/container/debug/" /Fd"../output/container/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\bbstree\__avl_tree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\bbstree\__bstree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\bbstree\myAVLTree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\__vector_inter.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\mybitvector.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\myBTree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\mybuffer.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\mydeque.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\myhashtable.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\mylist.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\myobj.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\myrbtree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\mySkipList.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\MyStringSet.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\myTTree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\myvector.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\container\string_set.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1010.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1011.tmp" with contents
+[
+/nologo /out:"../bin\container-d.lib" 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\__avl_tree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\__bstree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myAVLTree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\__vector_inter.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\mybitvector.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myBTree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\mybuffer.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\mydeque.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myhashtable.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\mylist.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myobj.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myrbtree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\mySkipList.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\MyStringSet.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myTTree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\myvector.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\container\debug\string_set.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\algorithm-d.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1011.tmp"
+<h3>Output Window</h3>
+Compiling...
+__avl_tree.c
+__bstree.c
+myAVLTree.c
+__vector_inter.c
+mybitvector.c
+myBTree.c
+mybuffer.c
+mydeque.c
+myhashtable.c
+mylist.c
+myobj.c
+myrbtree.c
+mySkipList.c
+MyStringSet.c
+myTTree.c
+myvector.c
+string_set.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1012.bat" with contents
+[
+@echo off
+md         ..\include\
+copy         ..\container\*.h         ..\include\
+copy         ..\container\bbstree\*.h         ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1012.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\container\mybitvector.h
+..\container\myBTree.h
+..\container\mybuffer.h
+..\container\mydeque.h
+..\container\myhashmap.h
+..\container\myhashtable.h
+..\container\myheap.h
+..\container\mylist.h
+..\container\mylistex.h
+..\container\mymap.h
+..\container\myobj.h
+..\container\myrbtree.h
+..\container\mySkipList.h
+..\container\MyStringSet.h
+..\container\MyStringSetEx.h
+..\container\myTTree.h
+..\container\myvector.h
+..\container\string_set.h
+..\container\__vector_inter.h
+已复制        19 个文件。
+..\container\bbstree\myAVLTree.h
+..\container\bbstree\__avl_tree.h
+..\container\bbstree\__bstree.h
+已复制         3 个文件。
+<h3>
+--------------------Configuration: os_api - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1013.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include" /I "./sync/" /I "../os_api/" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"../output/os_api/debug/os_api.pch" /YX /Fo"../output/os_api/debug/" /Fd"../output/os_api/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\file\myOsFile.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\ipc\mymmap.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\ipc\mynamepipe.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\ipc\mypipe.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\ipc\mysock.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\sync\myevent.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\sync\mymutex.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\sync\mysem.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\gettimeofday_win32.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\myos.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\myrand.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\os_api\mythread.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1013.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1014.bat" with contents
+[
+@echo off
+md             ..\include\
+copy             ..\os_api\*.h             ..\include\
+copy             ..\os_api\advance_sync\*.h             ..\include\
+copy             ..\os_api\sync\*.h             ..\include\
+copy             ..\os_api\ipc\*.h             ..\include\
+copy             ..\os_api\file\*.h             ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1014.bat"
+Compiling...
+myOsFile.c
+mymmap.c
+mynamepipe.c
+mypipe.c
+mysock.c
+myevent.c
+mymutex.c
+mysem.c
+gettimeofday_win32.c
+myos.c
+myrand.c
+mythread.c
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1015.tmp" with contents
+[
+/nologo /out:"../bin\os_api-d.lib" 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\myOsFile.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mymmap.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mynamepipe.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mypipe.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mysock.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\myevent.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mymutex.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mysem.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\gettimeofday_win32.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\myos.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\myrand.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\os_api\debug\mythread.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\container-d.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1015.tmp"
+
+子目录或文件 ..\include\ 已经存在。
+..\os_api\gettimeofday.h
+..\os_api\myhandleSet.h
+..\os_api\myos.h
+..\os_api\myprocess.h
+..\os_api\myrand.h
+..\os_api\mythread.h
+..\os_api\os_def.h
+..\os_api\__tv_def.h
+已复制         8 个文件。
+系统找不到指定的路径。
+..\os_api\sync\myevent.h
+..\os_api\sync\mymutex.h
+..\os_api\sync\mysem.h
+..\os_api\sync\__event_win32.h
+已复制         4 个文件。
+..\os_api\ipc\mymmap.h
+..\os_api\ipc\mynamepipe.h
+..\os_api\ipc\mypipe.h
+..\os_api\ipc\mysock.h
+..\os_api\ipc\mysysvmsg.h
+已复制         5 个文件。
+..\os_api\file\myOsFile.h
+已复制         1 个文件。
+<h3>Output Window</h3>
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1016.bat" with contents
+[
+@echo off
+md             ..\include\
+copy             ..\os_api\*.h             ..\include\
+copy             ..\os_api\advance_sync\*.h             ..\include\
+copy             ..\os_api\sync\*.h             ..\include\
+copy             ..\os_api\ipc\*.h             ..\include\
+copy             ..\os_api\file\*.h             ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1016.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\os_api\gettimeofday.h
+..\os_api\myhandleSet.h
+..\os_api\myos.h
+..\os_api\myprocess.h
+..\os_api\myrand.h
+..\os_api\mythread.h
+..\os_api\os_def.h
+..\os_api\__tv_def.h
+已复制         8 个文件。
+系统找不到指定的路径。
+..\os_api\sync\myevent.h
+..\os_api\sync\mymutex.h
+..\os_api\sync\mysem.h
+..\os_api\sync\__event_win32.h
+已复制         4 个文件。
+..\os_api\ipc\mymmap.h
+..\os_api\ipc\mynamepipe.h
+..\os_api\ipc\mypipe.h
+..\os_api\ipc\mysock.h
+..\os_api\ipc\mysysvmsg.h
+已复制         5 个文件。
+..\os_api\file\myOsFile.h
+已复制         1 个文件。
+<h3>
+--------------------Configuration: advance_container - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1017.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"../output/advance_container/debug/advance_container.pch" /YX /Fo"../output/advance_container/debug/" /Fd"../output/advance_container/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\advance_container\mymsgque.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\advance_container\myproritymsgque.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\advance_container\mytimerheap.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1017.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1018.tmp" with contents
+[
+/nologo /out:"../bin\advance_container-d.lib" 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\advance_container\debug\mymsgque.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\advance_container\debug\myproritymsgque.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\advance_container\debug\mytimerheap.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\os_api-d.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1018.tmp"
+<h3>Output Window</h3>
+Compiling...
+mymsgque.c
+myproritymsgque.c
+mytimerheap.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1019.bat" with contents
+[
+@echo off
+md       ..\include\
+copy       ..\advance_container\*.h       ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1019.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\advance_container\mymsgque.h
+..\advance_container\myproritymsgque.h
+..\advance_container\mytimerheap.h
+已复制         3 个文件。
+<h3>
+--------------------Configuration: frame - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101A.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include\\" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_MBCSV6" /Fp"../output/frame/debug/frame.pch" /YX /Fo"../output/frame/debug/" /Fd"../output/frame/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\frame\mydefmempool.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\frame\mylisterner.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\frame\mytimer_thread.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101A.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101B.tmp" with contents
+[
+/nologo /out:"../bin\frame-d.lib" 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\frame\debug\mydefmempool.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\frame\debug\mylisterner.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\frame\debug\mytimer_thread.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\advance_container-d.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101B.tmp"
+<h3>Output Window</h3>
+Compiling...
+mydefmempool.c
+mylisterner.c
+mytimer_thread.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101C.bat" with contents
+[
+@echo off
+md        ..\include\
+copy        ..\frame\*.h        ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101C.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\frame\mydefmempool.h
+..\frame\mylisterner.h
+..\frame\mytimer_thread.h
+已复制         3 个文件。
+<h3>
+--------------------Configuration: storage - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101D.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_MBCSV6" /Fp"../output/storage/debug/storage.pch" /YX /Fo"../output/storage/debug/" /Fd"../output/storage/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\storage\btree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\storage\OsFile.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\storage\pager.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101D.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101E.tmp" with contents
+[
+/nologo /out:"../bin\storage-d.lib" 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\storage\debug\btree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\storage\debug\OsFile.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\storage\debug\pager.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\container-d.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101E.tmp"
+<h3>Output Window</h3>
+Compiling...
+btree.c
+OsFile.c
+pager.c
+Creating library...
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101F.bat" with contents
+[
+@echo off
+md         ..\include\
+copy         ..\storage\*.h         ..\include\
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP101F.bat"
+
+子目录或文件 ..\include\ 已经存在。
+..\storage\btree.h
+..\storage\OsFile.h
+..\storage\pager.h
+..\storage\xdb.h
+已复制         4 个文件。
+<h3>
+--------------------Configuration: test - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1020.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include\\" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_MBCSV6" /FR"../output/test/debug/" /Fo"../output/test/debug/" /Fd"../output/test/debug/" /FD /GZ /c 
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\boost_tst.cpp"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\btree_demo.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\demo_test.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\getcallid.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_avltree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_binary.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_bitvector.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_btree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_btree_new.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_crc.cpp"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_deque.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_frame.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_hash.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_heapSort.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_msgparse.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_mybuffer.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_mylist.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_myrbtree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_osfile.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_pager.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_rand.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_rhapsody_mem_pool.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_string_set.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_timer_heap.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_ttree.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_uos.c"
+"D:\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\test\test_vector.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1020.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1021.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Ws2_32.lib /nologo /subsystem:console /incremental:yes /pdb:"../output/test/debug/test.pdb" /debug /machine:I386 /out:"../output/test/debug/test.exe" /pdbtype:sept 
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\boost_tst.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\btree_demo.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\demo_test.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\getcallid.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_avltree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_binary.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_bitvector.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_btree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_btree_new.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_crc.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_deque.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_frame.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_hash.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_heapSort.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_msgparse.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_mybuffer.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_mylist.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_myrbtree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_osfile.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_pager.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_rand.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_rhapsody_mem_pool.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_string_set.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_timer_heap.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_ttree.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_uos.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\output\test\debug\test_vector.obj"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\frame-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\advance_container-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\algorithm-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\container-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\debug-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\os_api-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\utility-d.lib"
+"\work\svn\eFax\Rhapsody-0.2.0\Rhapsody-0.2.0\bin\storage-d.lib"
+]
+Creating command line "link.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP1021.tmp"
+<h3>Output Window</h3>
+Compiling...
+boost_tst.cpp
+Generating Code...
+Compiling...
+btree_demo.c
+demo_test.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\demo_test.c(48) : warning C4013: 'getcallid' undefined; assuming extern returning int
+getcallid.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\getcallid.c(17) : warning C4018: '<' : signed/unsigned mismatch
+test.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test.c(54) : warning C4047: 'initializing' : 'unsigned long ' differs in levels of indirection from 'void *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test.c(65) : warning C4047: 'function' : 'unsigned long ' differs in levels of indirection from 'void *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test.c(65) : warning C4024: 'GetPrinterA' : different types for formal and actual parameter 4
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test.c(68) : warning C4047: '==' : 'unsigned long ' differs in levels of indirection from 'void *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test.c(119) : warning C4013: 'test_timer_thread_del' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test.c(126) : warning C4013: 'test_bitvector' undefined; assuming extern returning int
+test_avltree.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_avltree.c(116) : warning C4013: 'strcmp' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_avltree.c(145) : warning C4013: 'getcallid' undefined; assuming extern returning int
+test_binary.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_binary.c(33) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_binary.c(35) : warning C4013: 'printf' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_binary.c(50) : warning C4018: '==' : signed/unsigned mismatch
+test_bitvector.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_bitvector.c(17) : warning C4013: 'printf' undefined; assuming extern returning int
+test_btree.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree.c(26) : warning C4013: 'strncmp' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree.c(26) : warning C4013: 'strlen' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree.c(35) : warning C4013: 'time' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree.c(50) : warning C4013: 'getcallid' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree.c(63) : warning C4013: 'strncpy' undefined; assuming extern returning int
+test_btree_new.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(21) : warning C4013: 'strncmp' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(50) : warning C4013: 'getcallid' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(52) : warning C4013: 'memcpy' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(69) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(112) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(148) : warning C4013: 'strlen' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(162) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_btree_new.c(211) : warning C4013: 'time' undefined; assuming extern returning int
+Generating Code...
+Compiling...
+test_crc.cpp
+Generating Code...
+Compiling...
+test_deque.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(25) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(38) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(52) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(54) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(81) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(95) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(109) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(111) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_deque.c(137) : warning C4018: '==' : signed/unsigned mismatch
+test_frame.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(76) : warning C4013: 'gettimeofday' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(139) : warning C4013: 'printf' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(194) : warning C4133: 'function' : incompatible types - from 'unsigned int *' to 'unsigned short *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(200) : warning C4133: 'function' : incompatible types - from 'unsigned int *' to 'unsigned short *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(274) : warning C4133: 'function' : incompatible types - from 'unsigned int *' to 'unsigned short *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(275) : warning C4133: 'function' : incompatible types - from 'unsigned int *' to 'unsigned short *'
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(302) : warning C4013: '_snprintf' undefined; assuming extern returning int
+test_hash.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_hash.c(209) : warning C4018: '==' : signed/unsigned mismatch
+test_heapSort.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_heapsort.c(53) : warning C4013: 'gettimeofday' undefined; assuming extern returning int
+test_msgparse.c
+test_mybuffer.c
+test_mylist.c
+test_myrbtree.c
+test_osfile.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_osfile.c(17) : warning C4013: 'memcmp' undefined; assuming extern returning int
+test_pager.c
+test_rand.c
+test_rhapsody_mem_pool.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_rhapsody_mem_pool.c(99) : warning C4013: 'printf' undefined; assuming extern returning int
+test_string_set.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_string_set.c(44) : warning C4013: 'printf' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_string_set.c(51) : warning C4013: 'gettimeofday' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_string_set.c(111) : warning C4018: '==' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_string_set.c(136) : warning C4018: '==' : signed/unsigned mismatch
+test_timer_heap.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_timer_heap.c(262) : warning C4013: 'printf' undefined; assuming extern returning int
+test_ttree.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_ttree.c(92) : warning C4013: 'strncmp' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_ttree.c(92) : warning C4013: 'strlen' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_ttree.c(100) : warning C4013: 'time' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_ttree.c(116) : warning C4013: 'getcallid' undefined; assuming extern returning int
+test_uos.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(120) : warning C4013: 'os_msleep' undefined; assuming extern returning int
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(200) : warning C4013: 'printf' undefined; assuming extern returning int
+test_vector.c
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(32) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(45) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(58) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(131) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(145) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(159) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(349) : warning C4018: '<' : signed/unsigned mismatch
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_vector.c(368) : warning C4018: '<' : signed/unsigned mismatch
+Generating Code...
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(123) : warning C4716: 'tcp_accept_thread_fun' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(148) : warning C4716: 'tcp_connect_thread_fun' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(351) : warning C4716: 'test_thread_mutex_recursion_fun' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(303) : warning C4716: 'test_thread_mutex_fun' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(383) : warning C4716: 'test_thread_sem_fun1' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_uos.c(398) : warning C4716: 'test_thread_sem_fun2' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(81) : warning C4716: 'test_timer_thread_cb' : must return a value
+d:\work\svn\efax\rhapsody-0.2.0\rhapsody-0.2.0\test\test_frame.c(205) : warning C4716: 'cb_listerner_input' : must return a value
+Linking...
+
+
+
+<h3>Results</h3>
+test.exe - 0 error(s), 74 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+project(algorithm){	
+		includes += "../../include/"
+
+		//libpaths +=
+		//lit_libs +=
+		//pure_libs=/root/ist/sqlite/sqlite/libxxx.a
+		
+		//exename=test
+		staticname=algorithm
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+	//cp ./*.h ../include/algorithm
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+ 		../../algorithm/__def_fun_def.c  
+ 		../../algorithm/MyHeapAlg.c  
+ 		../../algorithm/MyInsertSort.c  
+ 		../../algorithm/MyQuickSort.c 	 		
+ 		../../algorithm/MyBinarySearch.c 		
+ 		}
+}
+

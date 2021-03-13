@@ -1,0 +1,432 @@
+///**
+// *
+// * @file myBPlusTree.c B+树,B树的一种变形
+// *
+// * @author lin shao chuan (email:lsccsl@tom.com, msn:lsccsl@163.net)
+// *
+// * @brief
+// * 一棵B+树的例子如下
+// *                          ___________________________________________________________________________________________________
+// *                         | 20                          |     60                        |            90                       |                                -|
+// *                         -----------------------------------------------------------------------------------------------------                                 |
+// *                       /                               |                               |                                      \                                |->稀疏索引
+// *           ___________	                          __________                     __________________________                     ________________               |
+// *          |   10 | 15 |                          |  25 | 45 |                   | 70   |   80         | 85 |                   | 95      | 100  |             -|
+// *          -------------                          ------------                   ----------------------------                   ------------------                
+// *         /       |     \                        /      |     \                 /       |              |     \                 /          |        \              
+// *  _______    _________   _________     _________   _________   ________    ________   ________    _________   ________    ________   ____________    __________   -|
+// * | 5 | 9 |  | 10 | 14 | | 15 | 19 |   | 20 | 24 | | 25 | 44 | | 45 | 59|  | 60 | 69| | 70 | 79|  | 80 | 84 | | 85 | 89|  | 90 | 94| | 95 | 97| 99|  | 100 | 120|   |->稠密索引
+// * ---------  ----------- -----------   ----------- ----------- ----------  ---------- ----------  ----------- ----------  ---------- --------------  ------------  -|
+// *
+// * B+树也可以认为是跳表的变形
+// *
+// * todo:B树实际应用是与辅存相结合的.
+// */
+//#include "myBPlusTree.h"
+//
+//#include <assert.h>
+//#include <stdio.h>
+//
+//#include "myvector.h"
+//#include "__vector_inter.h"
+//
+//
+//typedef struct __mybplustree_node_t_
+//{
+//	/*
+//	* 关键字数组
+//	*/
+//	HMYVECTOR hv_key;
+//
+//	/*
+//	* 子节点数组
+//	*/
+//	HMYVECTOR hv_sub;
+//
+//	/*
+//	* 如果当前节点是叶节点,这个域指向下一个节点,
+//	* 如果当前节点是内部节点,则这个域没有意义
+//	*/
+//	struct __mybplustree_node_t_ * next;
+//}mybplustree_node_t;
+//
+//typedef struct __mybplustree_t_
+//{
+//	/* 根节点 */
+//	mybplustree_node_t * root;
+//
+//	/* 内存池 */
+//	HMYMEMPOOL hm;
+//
+//	/* 节点的最小子节点个数 */
+//	size_t min_sub;
+//
+//	/*
+//	* 比较回调,与保留字段
+//	*/
+//	ALG_COMPARE compare;
+//	void * context;
+//
+//	/* 记录数 */
+//	size_t index_count;
+//}mybplustree_t;
+//
+//
+///**
+// * B+树比较
+// */
+//static __INLINE__ int bptree_compare(const void * data1, const void * data2, const void * context)
+//{
+//	HMYVECTOR_ITER it1 = *((HMYVECTOR_ITER *)data1);
+//	HMYVECTOR_ITER it2 = *((HMYVECTOR_ITER *)data2);
+//	mybplustree_t * bptree = (mybplustree_t *)context;
+//
+//	assert(bptree && it1 && it2 && bptree->compare);
+//
+//	return bptree->compare(__vector_inter_get_iter_data(it1), __vector_inter_get_iter_data(it2), bptree->context);
+//}
+//
+///**
+// * 索引数组查找
+// */
+//static __INLINE__ int bptree_search_key_array(mybplustree_t * bptree, HMYVECTOR hv_index, const void * index_info, size_t * index)
+//{
+//	assert(bptree && hv_index);
+//
+//	{
+//		__vector_inter_get_temp_it(it, 0, (void *)index_info);
+//
+//		return MyBinarySearch(__vector_inter_get_array(hv_index),
+//			__vector_inter_get_count(hv_index),
+//			__vector_inter_get_array_step_size(hv_index),
+//			&it, bptree_compare, index, bptree);
+//	}
+//}
+//
+///**
+// * @brief 创建B+树节点
+// */
+//static __INLINE__ mybplustree_node_t * bptree_create_node(mybplustree_t * bptree)
+//{
+//	mybplustree_node_t * node = NULL;
+//
+//	assert(bptree);
+//
+//	node = MyMemPoolMalloc(bptree->hm, sizeof(*node));
+//	if(NULL == node)
+//		return NULL;
+//
+//	node->hv_key = __vector_inter_create(bptree->hm, bptree->min_sub + 1, NULL, NULL);
+//	node->hv_sub = __vector_inter_create(bptree->hm, bptree->min_sub + 1, NULL, NULL);
+//
+//	if(NULL == node->hv_key || node->hv_sub)
+//	{
+//		MyMemPoolFree(bptree->hm, node);
+//		return NULL;
+//	}
+//
+//	return node;
+//}
+//
+///**
+// * @brief 销毁B+树节点
+// */
+//static __INLINE__ void bptree_node_destroy(mybplustree_t * bptree, mybplustree_node_t * node)
+//{
+//	assert(bptree && node);
+//
+//	assert(node->hv_key);
+//	assert(node->hv_sub);
+//
+//	assert(__vector_inter_get_count(node->hv_key) == 0);
+//	assert(__vector_inter_get_count(node->hv_sub) == 0);
+//
+//	__vector_inter_destroy(node->hv_key);
+//	__vector_inter_destroy(node->hv_sub);
+//
+//	MyMemPoolFree(bptree->hm, node);
+//}
+//
+///**
+// * @brief 销毁B+树
+// */
+//static __INLINE__ void bptree_destroy(mybplustree_t * bptree)
+//{
+//	assert(0);
+//}
+//
+//
+///**
+// * @brief B+树的创建
+// * @param mini_sub:最小子节点的数目
+// */
+//HMYBPTREE MyBPlusTreeConstruct(HMYMEMPOOL hm, ALG_COMPARE compare, size_t min_sub)
+//{
+//#define DEF_MIN_SUB 3
+//
+//	mybplustree_t * bptree = MyMemPoolMalloc(hm, sizeof(*bptree));
+//	if(NULL == bptree)
+//		return NULL;
+//
+//	assert(compare);
+//
+//	bptree->hm = hm;
+//	bptree->compare = compare;
+//	bptree->context = NULL;
+//	bptree->min_sub = min_sub;
+//	bptree->index_count = 0;
+//
+//	if(bptree->min_sub <= DEF_MIN_SUB)
+//		bptree->min_sub = DEF_MIN_SUB;
+//
+//	bptree->root = bptree_create_node(bptree);
+//	if(NULL == bptree->root)
+//		goto MyBPlusTreeConstruct_err_;
+//
+//	return bptree;
+//
+//MyBPlusTreeConstruct_err_:
+//
+//	bptree_destroy(bptree);
+//
+//	return NULL;
+//
+//#undef DEF_MIN_SUB
+//}
+//
+///**
+// * @brief B+树的销毁
+// */
+//extern void MyBPlusTreeDestruct(HMYBPTREE hbptree);
+//
+///**
+// * @brief B+树添加
+// * @param index_info:要添加的索引信息
+// * @return 0:成功 其它:失败
+// */
+//int MyBPlusTreeAdd(HMYBPTREE hbptree, void * index_info)
+//{
+//	size_t old_index = 0;
+//	mybplustree_node_t * current_node = NULL;
+//	mybplustree_node_t * parent = NULL;
+//
+//	/*
+//	* 从根节点开始搜寻
+//	* 根据需要分裂结点
+//	* 至叶节点时,添加至合适位置
+//	*/
+//
+//	if(NULL == hbptree)
+//		return -1;
+//
+//	assert(hbptree->root);
+//
+//	current_node = hbptree->root;
+//
+//	while(1)
+//	{
+//		size_t index = 0;
+//
+//		assert(__vector_inter_get_count(current_node->hv_sub) == __vector_inter_get_count(current_node->hv_key) ||
+//			0 == __vector_inter_get_count(current_node->hv_sub));
+//		assert(__vector_inter_get_count(current_node->hv_sub) >= hbptree->min_sub || 0 == __vector_inter_get_count(current_node->hv_sub));
+//		assert(__vector_inter_get_count(current_node->hv_sub) <= hbptree->min_sub);
+//
+//		if(0 == bptree_search_key_array(hbptree, current_node->hv_key, index_info, &index))
+//			return -1;
+//
+//		assert(index <= __vector_inter_get_count(current_node->hv_key));
+//
+//		if(0 == __vector_inter_get_count(current_node->hv_sub))
+//			__vector_inter_insert_at(current_node->hv_key, index, index_info, 0);
+//
+//		/* 小于临界值 */
+//		if(__vector_inter_get_count(current_node->hv_key) + 1 < hbptree->min_sub * 2)
+//		{
+//			old_index = index;
+//			parent = current_node;
+//
+//			if(__vector_inter_get_count(current_node->hv_sub))
+//				current_node = (mybplustree_node_t *)__vector_inter_get_index_data(current_node->hv_sub, index);
+//			else
+//				break;
+//
+//			continue;
+//		}
+//		else
+//		{
+//			/* 处于临界点,应当分裂 */
+//			mybplustree_node_t * node_new = NULL;
+//
+//			node_new = bptree_create_node(hbptree);
+//			if(NULL == node_new)
+//				return -1;
+//
+//			/*
+//			* 如果是根节点,则父节点需要被创建
+//			*/
+//			if(parent == NULL)
+//			{
+//				assert(current_node == hbptree->root);
+//
+//				parent = bptree_create_node(hbptree);
+//				if(NULL == parent)
+//				{
+//					bptree_node_destroy(hbptree, node_new);
+//					return -1;
+//				}
+//
+//				hbptree->root = parent;
+//				__vector_inter_add(parent->hv_sub, current_node, 0);
+//			}
+//
+//			__vector_move_range_to_end(node_new->hv_key, current_node->hv_key, hbptree->min_sub, hbptree->min_sub - 1);
+//			assert(hbptree->min_sub == __vector_inter_get_count(node_new->hv_key) + 1);
+//			assert(hbptree->min_sub == __vector_inter_get_count(current_node->hv_key));
+//
+//			__vector_inter_insert_at(parent->hv_sub, old_index + 1, node_new, 0);
+//
+//			/*
+//			* 更新父节点的索引数组
+//			*/
+//			if(0 == __vector_inter_get_count(current_node->hv_sub))
+//				__vector_inter_insert_at(parent->hv_key, old_index, __vector_get_head_data(node_new->hv_key), 0);
+//			else
+//				__vector_move_range_to_index(parent->hv_key, old_index, current_node->hv_key, __vector_inter_get_count(current_node->hv_key) - 1, 0);
+//
+//			if(__vector_inter_get_count(current_node->hv_sub))
+//			{
+//				__vector_move_range_to_end(node_new->hv_sub, current_node->hv_sub, hbptree->min_sub, hbptree->min_sub);
+//				assert(hbptree->min_sub == __vector_inter_get_count(node_new->hv_key));
+//				assert(hbptree->min_sub == __vector_inter_get_count(current_node->hv_key));
+//			}
+//			else
+//			{
+//				current_node->next = node_new;
+//			}
+//
+//			/* 指针下走 */
+//			if(index < hbptree->min_sub)
+//			{
+//				old_index = index;
+//				parent = current_node;
+//
+//				if(__vector_inter_get_count(current_node->hv_sub))
+//					current_node = (mybplustree_node_t *)__vector_inter_get_index_data(current_node->hv_sub, old_index);
+//				else
+//					break;
+//
+//				continue;
+//			}
+//			else
+//			{
+//				old_index = index - hbptree->min_sub;
+//				parent = node_new;
+//
+//				if(__vector_inter_get_count(current_node->hv_sub))
+//					current_node = (mybplustree_node_t *)__vector_inter_get_index_data(current_node->hv_sub, old_index);
+//				else
+//					break;
+//
+//				continue;
+//			}
+//		}
+//	}
+//
+//	return 0;
+//}
+//
+///**
+// * @brief 从B+树中删除一个节点
+// * @param index_info:要删除的索引信息
+// * @param index_info_out:返回存储在B树里的索引信息指针给用户
+// * @return 0:成功 其它:失败
+// */
+//int MyBPlusTreeDel(HMYBPTREE hbptree, void * index_info, void ** index_info_out)
+//{
+//	int bfind_key = 0;
+//	mybplustree_node_t * current_node = NULL;
+//
+//	/*
+//	* 根据B+树的定义,删除是发生的叶节点的,同时根据需要更新内部的索引节点(如果删除的关键字当前叶节点的最小值)
+//	*
+//	* 沿着搜索路径,根据需要依次分合并节点,
+//	*
+//	* 1:左右兄弟都处于临界,与其中某个兄弟合并
+//	* 2:有一个兄弟大于临界,向它的向前驱/后继借一个节点.注意前驱的情况与后继不同,需要更新最大值.利用前驱的最值进行递归
+//	*
+//	* 如果在非根结点中找到,
+//	* 用对应子分支的叶节点的次大值更新对应路径节点的最大值
+//	*
+//	* 在叶子节点中找到,直接删除即可
+//	*/
+//
+//	if(NULL == hbptree)
+//		return -1;
+//
+//	assert(hbptree->root);
+//
+//	current_node = hbptree->root;
+//	while(1)
+//	{
+//		size_t index = 0;
+//
+//		assert(current_node->hv_key);
+//		assert(__vector_inter_get_count(current_node->hv_key) + 1 == __vector_inter_get_count(current_node->hv_sub)
+//			|| current_node == hbptree->root
+//			|| __vector_inter_get_count(current_node->hv_sub) == 0);
+//
+//		/*
+//		* 查找在删除节点所在的分支
+//		*/
+//		if(0 == bptree_search_key_array(hbptree, current_node->hv_key, index_info, &index))
+//		{
+//			void * subsequence_key = NULL;
+//			mybplustree_node_t * subsequence = NULL;
+//
+//			assert(index < __vector_inter_get_count(current_node->hv_sub) || __vector_inter_get_count(current_node->hv_sub) == 0);
+//
+//			if(index_info_out && 0 == bfind_key)
+//			{
+//				bfind_key = 1;
+//				*index_info_out = __vector_inter_get_index_data(current_node->hv_key, index);
+//
+//				if(hbptree->index_count)
+//					hbptree->index_count --;
+//			}
+//
+//			/*
+//			* 
+//			*/
+//			subsequence = 
+//
+//			/*
+//			* 用后继节点的次大key值,更新节点的key
+//			*/
+//			__vector_inter_update_index(current_node->hv_key, index, , 0);
+//		}
+//		else
+//		{
+//			;
+//		}
+//	}
+//
+//	return 0;
+//}
+//
+///**
+// * @brief 在B+树中查找
+// * @param index_info:要查找的索引信息
+// * @param index_info_out:返回存储在B树里的索引信息指针给用户
+// * @return 0:成功 其它:失败
+// */
+//extern int MyBPlusTreeSearch(HMYBPTREE hbtree, const void * index_info, void ** index_info_out);
+//
+//
+//
+//
+//
+//
+//
+//
+//

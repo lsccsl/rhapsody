@@ -1,0 +1,69 @@
+///**
+// *
+// * @file myBPlusTree.c B+树
+// *
+// * @author lin shao chuan (email:lsccsl@tom.com, msn:lsccsl@163.net)
+// *
+// */
+//#ifndef __MYBPLUSTREE_H__
+//#define __MYBPLUSTREE_H__
+//
+//
+//#include "mymempool.h"
+//#include "MyfunctionDef.h"
+//
+//
+//struct __mybplustree_t_;
+//typedef struct __mybplustree_t_ * HMYBPTREE;
+//
+//
+///**
+// * @brief B+树的创建
+// * @param mini_sub:最小子节点的数目
+// */
+//extern HMYBPTREE MyBPlusTreeConstruct(HMYMEMPOOL hm, ALG_COMPARE compare, size_t min_sub);
+//
+///**
+// * @brief B+树的销毁
+// */
+//extern void MyBPlusTreeDestruct(HMYBPTREE hbptree);
+//
+///**
+// * @brief B+树添加
+// * @param index_info:要添加的索引信息
+// * @return 0:成功 其它:失败
+// */
+//extern int MyBPlusTreeAdd(HMYBPTREE hbptree, void * index_info);
+//
+///**
+// * @brief 从B+树中删除一个节点
+// * @param index_info:要删除的索引信息
+// * @param index_info_out:返回存储在B树里的索引信息指针给用户
+// * @return 0:成功 其它:失败
+// */
+//extern int MyBPlusTreeDel(HMYBPTREE hbtree, void * index_info, void ** index_info_out);
+//
+///**
+// * @brief 在B+树中查找
+// * @param index_info:要查找的索引信息
+// * @param index_info_out:返回存储在B树里的索引信息指针给用户
+// * @return 0:成功 其它:失败
+// */
+//extern int MyBPlusTreeSearch(HMYBPTREE hbptree, const void * index_info, void ** index_info_out);
+//
+//
+//#endif
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

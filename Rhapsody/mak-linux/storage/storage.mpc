@@ -1,0 +1,27 @@
+project(storage){	
+		//includes += "./"
+		includes += "../../include/"
+
+		//libpaths +=
+		//lit_libs += XXX
+		//pure_libs=/root/ist/sqlite/sqlite/libXXX.a
+		
+		//exename=test
+		staticname=storage
+		sharedname=
+		//install=../lib
+		libout=../../bin
+
+		//cp ./os_api/util.h ../include/util
+		//cp ./container/*.h ../include/util
+		
+		verbatim(make,local) {
+			CPPFLAGS += -Wno-deprecated -g -D_DEBUG
+			//CPPFLAGS += -Os -D__uClinux__ -fno-builtin 		
+		}
+ 		Source_Files {
+  		../../storage/pager.c
+  		../../storage/btree.c
+ 		}
+}
+

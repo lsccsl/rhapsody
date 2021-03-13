@@ -1,0 +1,146 @@
+#----------------------------------------------------------------------------
+#       Macros
+#----------------------------------------------------------------------------
+CXX           = arm-elf-gcc
+LD            = $(CXX) $(CCFLAGS) $(CPPFLAGS)
+AR            = ar
+PICFLAGS      = 
+CPPFLAGS      = $(PICFLAGS) $(GENFLAGS) -D_REENTRANT -I"../include/"
+OBJEXT        = .o
+OUTPUT_OPTION = -o "$@"
+COMPILE.cc    = $(CXX) $(CCFLAGS) $(CPPFLAGS) -c
+LDFLAGS       = -L"." -L"../bin"
+CCC           = $(CXX)
+MAKEFILE      = Makefile.test
+DEPENDENCIES  = .depend.$(MAKEFILE)
+BTARGETDIR    = .//
+BIN           = $(BTARGETDIR)test$(EXESUFFIX)$(EXEEXT)
+CAT           = cat
+MV            = mv -f
+RM            = rm -rf
+CP            = cp -p
+NUL           = /dev/null
+MKDIR         = mkdir -p
+EXEEXT        = 
+LIBPREFIX     = lib
+LIBSUFFIX     = 
+GENFLAGS      = 
+LDLIBS        = -l"arm-frame" -l"arm-file_op"  -l"arm-advance_container" -l"arm-storage"  -l"arm-os_api"  -l"arm-container" -l"arm-algorithm"  -l"arm-utility"  -l"arm-debug"  -lc -lpthread $(subst lib,-l,$(sort $(basename $(notdir $(wildcard )))))
+OBJS          = test_frame$(OBJEXT) test_deque$(OBJEXT) test_ini$(OBJEXT) test_mybuffer$(OBJEXT) test_myrbtree$(OBJEXT) test_timer_heap$(OBJEXT) test_hash$(OBJEXT) test_msgparse$(OBJEXT) test_mylist$(OBJEXT) test_string_set$(OBJEXT) test_vector$(OBJEXT) test$(OBJEXT) getcallid$(OBJEXT) test_heapSort$(OBJEXT) test_avltree$(OBJEXT) test_rhapsody_mem_pool$(OBJEXT) test_binary$(OBJEXT) test_ttree$(OBJEXT) test_btree$(OBJEXT) btree_demo$(OBJEXT) test_osfile$(OBJEXT) test_btree_new$(OBJEXT) demo_test$(OBJEXT) test_pager$(OBJEXT) test_rand$(OBJEXT) test_uos$(OBJEXT)
+SRC           = test_frame.c test_deque.c test_ini.c test_mybuffer.c test_myrbtree.c test_timer_heap.c test_hash.c test_msgparse.c test_mylist.c test_string_set.c test_vector.c test.c getcallid.c test_heapSort.c test_avltree.c test_rhapsody_mem_pool.c test_binary.c test_ttree.c test_btree.c btree_demo.c test_osfile.c test_btree_new.c demo_test.c test_pager.c test_rand.c test_uos.c
+LINK.cc       = $(LD) $(LDFLAGS)
+EXPORTFLAGS   = 
+
+#----------------------------------------------------------------------------
+#       Local targets
+#----------------------------------------------------------------------------
+
+all: $(BIN)
+
+$(BTARGETDIR):
+	@$(MKDIR) "$@"
+
+$(BIN): $(BTARGETDIR) $(OBJS)
+	$(LINK.cc) $(OBJS) $(LDLIBS) $(OUTPUT_OPTION)
+
+generated: $(GENERATED_DIRTY)
+	@-:
+
+test_frame$(OBJEXT): test_frame.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_frame.c
+
+test_deque$(OBJEXT): test_deque.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_deque.c
+
+test_ini$(OBJEXT): test_ini.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_ini.c
+
+test_mybuffer$(OBJEXT): test_mybuffer.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_mybuffer.c
+
+test_myrbtree$(OBJEXT): test_myrbtree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_myrbtree.c
+
+test_timer_heap$(OBJEXT): test_timer_heap.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_timer_heap.c
+
+test_hash$(OBJEXT): test_hash.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_hash.c
+
+test_msgparse$(OBJEXT): test_msgparse.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_msgparse.c
+
+test_mylist$(OBJEXT): test_mylist.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_mylist.c
+
+test_string_set$(OBJEXT): test_string_set.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_string_set.c
+
+test_vector$(OBJEXT): test_vector.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_vector.c
+
+test$(OBJEXT): test.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test.c
+
+getcallid$(OBJEXT): getcallid.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) getcallid.c
+
+test_heapSort$(OBJEXT): test_heapSort.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_heapSort.c
+
+test_avltree$(OBJEXT): test_avltree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_avltree.c
+
+test_rhapsody_mem_pool$(OBJEXT): test_rhapsody_mem_pool.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_rhapsody_mem_pool.c
+
+test_binary$(OBJEXT): test_binary.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_binary.c
+
+test_ttree$(OBJEXT): test_ttree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_ttree.c
+
+test_btree$(OBJEXT): test_btree.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_btree.c
+
+btree_demo$(OBJEXT): btree_demo.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) btree_demo.c
+
+test_osfile$(OBJEXT): test_osfile.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_osfile.c
+
+test_btree_new$(OBJEXT): test_btree_new.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_btree_new.c
+
+demo_test$(OBJEXT): demo_test.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) demo_test.c
+
+test_pager$(OBJEXT): test_pager.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_pager.c
+
+test_rand$(OBJEXT): test_rand.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_rand.c
+
+test_uos$(OBJEXT): test_uos.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) test_uos.c
+	
+clean:
+	-$(RM) $(OBJS)
+
+realclean: clean
+	-$(RM) $(BIN)
+
+CPPFLAGS += -Os -D__uClinux__ -fno-builtin -elf2flt
+
+
+#----------------------------------------------------------------------------
+#       Dependencies
+#----------------------------------------------------------------------------
+
+$(DEPENDENCIES):
+	@touch $(DEPENDENCIES)
+
+depend:
+	-makedepend -Y $(CFLAGS) $(CCFLAGS) $(CPPFLAGS) -f $(DEPENDENCIES) $(SRC) 2> $(NUL)
+
+include $(DEPENDENCIES)

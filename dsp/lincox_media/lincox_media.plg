@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: lincox_media - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"..\output\lincox_media\Debug/version.res" /d "_DEBUG" "D:\work\fax\dispatch\Rhapsody-0.2.0\dsp\lincox_media\version.rc"" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4BAF.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\vendor\rhapsody\include" /I "..\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LINCOX_MEDIA_EXPORTS" /Fp"..\output\lincox_media\Debug/lincox_media.pch" /YX /Fo"..\output\lincox_media\Debug/" /Fd"..\output\lincox_media\Debug/" /FD /GZ /c 
+"D:\work\fax\dispatch\Rhapsody-0.2.0\dsp\lincox_media\lcx_audio_play.c"
+"D:\work\fax\dispatch\Rhapsody-0.2.0\dsp\lincox_media\lcx_audio_record.c"
+"D:\work\fax\dispatch\Rhapsody-0.2.0\dsp\lincox_media\lcx_record2file.c"
+"D:\work\fax\dispatch\Rhapsody-0.2.0\dsp\lincox_media\mymempool.c"
+"D:\work\fax\dispatch\Rhapsody-0.2.0\dsp\lincox_media\myOsFile.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4BAF.tmp" 
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4BB0.tmp" with contents
+[
+winmm.lib /nologo /dll /incremental:yes /pdb:"..\output\lincox_media\Debug/lincox_media-d.pdb" /debug /machine:I386 /out:"..\bin/lincox_media-d.dll" /implib:"..\output\lincox_media\Debug/lincox_media-d.lib" /pdbtype:sept /libpath:"..\vendor\rhapsody\bin" 
+"\work\fax\dispatch\Rhapsody-0.2.0\dsp\output\lincox_media\Debug\lcx_audio_play.obj"
+"\work\fax\dispatch\Rhapsody-0.2.0\dsp\output\lincox_media\Debug\lcx_audio_record.obj"
+"\work\fax\dispatch\Rhapsody-0.2.0\dsp\output\lincox_media\Debug\lcx_record2file.obj"
+"\work\fax\dispatch\Rhapsody-0.2.0\dsp\output\lincox_media\Debug\mymempool.obj"
+"\work\fax\dispatch\Rhapsody-0.2.0\dsp\output\lincox_media\Debug\myOsFile.obj"
+"\work\fax\dispatch\Rhapsody-0.2.0\dsp\output\lincox_media\Debug\version.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4BB0.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+lcx_audio_play.c
+lcx_audio_record.c
+lcx_record2file.c
+mymempool.c
+myOsFile.c
+Linking...
+   Creating library ..\output\lincox_media\Debug/lincox_media-d.lib and object ..\output\lincox_media\Debug/lincox_media-d.exp
+Creating temporary file "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4BB4.bat" with contents
+[
+@echo off
+copy .\lcx_audio_record.h ..\include
+copy .\lcx_audio_play.h ..\include
+copy .\lcx_record2file.h ..\include
+]
+Creating command line "C:\DOCUME~1\SHAOCH~1.LIN\LOCALS~1\Temp\RSP4BB4.bat"
+
+已复制         1 个文件。
+已复制         1 个文件。
+已复制         1 个文件。
+
+
+
+<h3>Results</h3>
+lincox_media-d.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

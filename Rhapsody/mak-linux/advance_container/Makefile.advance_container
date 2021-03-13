@@ -1,0 +1,78 @@
+#----------------------------------------------------------------------------
+#       Macros
+#----------------------------------------------------------------------------
+CXX           = gcc
+LD            = $(CXX) $(CCFLAGS) $(CPPFLAGS)
+AR            = ar
+PICFLAGS      = -fPIC
+CPPFLAGS      = $(PICFLAGS) $(GENFLAGS) -D_REENTRANT -I"../../include/"
+OBJEXT        = .o
+OUTPUT_OPTION = -o "$@"
+COMPILE.cc    = $(CXX) $(CCFLAGS) $(CPPFLAGS) -c
+LDFLAGS       = -L"."
+CCC           = $(CXX)
+MAKEFILE      = Makefile.advance_container
+DEPENDENCIES  = .depend.$(MAKEFILE)
+LTARGETDIR    = ../../bin/
+CAT           = cat
+MV            = mv -f
+RM            = rm -rf
+CP            = cp -p
+NUL           = /dev/null
+MKDIR         = mkdir -p
+EXEEXT        = 
+LIBPREFIX     = lib
+LIBSUFFIX     = 
+GENFLAGS      = -O
+LDLIBS        = -ldl -lpthread $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so)))))
+OBJS          = ../../advance_container/mymsgque$(OBJEXT) ../../advance_container/myproritymsgque$(OBJEXT) ../../advance_container/mytimerheap$(OBJEXT)
+AREXT         = .a
+LIB           = $(LTARGETDIR)$(LIBPREFIX)advance_container$(LIBSUFFIX)$(AREXT)
+SRC           = ../../advance_container/mymsgque.c ../../advance_container/myproritymsgque.c ../../advance_container/mytimerheap.c
+LINK.cc       = $(LD) $(LDFLAGS)
+EXPORTFLAGS   = $(STATICFLAGS)
+
+#----------------------------------------------------------------------------
+#       Local targets
+#----------------------------------------------------------------------------
+
+all: $(LIB)
+
+$(LTARGETDIR):
+	@$(MKDIR) "$@"
+
+$(LIB): $(LTARGETDIR) $(OBJS)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJS)
+
+generated: $(GENERATED_DIRTY)
+	@-:
+
+../../advance_container/mymsgque$(OBJEXT): ../../advance_container/mymsgque.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../advance_container/mymsgque.c
+
+../../advance_container/myproritymsgque$(OBJEXT): ../../advance_container/myproritymsgque.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../advance_container/myproritymsgque.c
+
+../../advance_container/mytimerheap$(OBJEXT): ../../advance_container/mytimerheap.c
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) ../../advance_container/mytimerheap.c
+
+clean:
+	-$(RM) $(OBJS)
+
+realclean: clean
+	-$(RM) $(SHLIB) $(LIB)
+
+CPPFLAGS += -Wno-deprecated -g
+
+
+#----------------------------------------------------------------------------
+#       Dependencies
+#----------------------------------------------------------------------------
+
+$(DEPENDENCIES):
+	@touch $(DEPENDENCIES)
+
+depend:
+	-makedepend -Y $(CFLAGS) $(CCFLAGS) $(CPPFLAGS) -f $(DEPENDENCIES) $(SRC) 2> $(NUL)
+
+include $(DEPENDENCIES)
